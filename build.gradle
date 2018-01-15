@@ -1,0 +1,15 @@
+
+allprojects {
+    repositories {
+        jcenter() 
+    }
+}
+
+// eclipse
+apply plugin: 'eclipse'
+eclipse {
+    classpath {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}

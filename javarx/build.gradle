@@ -1,0 +1,22 @@
+apply plugin : 'java'
+apply plugin : 'application'
+mainClassName = 'example.Main'
+
+configurations {
+    doc {
+        transitive false
+    }
+}
+
+
+dependencies {
+  compile "io.reactivex.rxjava2:rxjava:+"
+  doc      "io.reactivex.rxjava2:rxjava:+"
+}
+
+
+javadoc {
+    source configurations.doc.collect { zipTree(it) }
+    include '**/*.java'
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
